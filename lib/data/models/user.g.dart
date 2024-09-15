@@ -54,6 +54,7 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       email: json['email'] as String,
       phone: json['phone'] as String,
       cell: json['cell'] as String,
+      picture: Picture.fromJson(json['picture'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
@@ -64,9 +65,24 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'email': instance.email,
       'phone': instance.phone,
       'cell': instance.cell,
+      'picture': instance.picture,
     };
 
 const _$GenderEnumMap = {
   Gender.male: 'male',
   Gender.female: 'female',
 };
+
+_$PictureImpl _$$PictureImplFromJson(Map<String, dynamic> json) =>
+    _$PictureImpl(
+      large: json['large'] as String,
+      medium: json['medium'] as String,
+      thumbnail: json['thumbnail'] as String,
+    );
+
+Map<String, dynamic> _$$PictureImplToJson(_$PictureImpl instance) =>
+    <String, dynamic>{
+      'large': instance.large,
+      'medium': instance.medium,
+      'thumbnail': instance.thumbnail,
+    };

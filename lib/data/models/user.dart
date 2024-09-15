@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.g.dart';
+
 part 'user.freezed.dart';
 
 enum Gender {
@@ -10,8 +11,7 @@ enum Gender {
 
 @freezed
 //@JsonSerializable(checked: true)
-class User with _$User{
-
+class User with _$User {
   const factory User({
     required Gender gender,
     required Name name,
@@ -19,6 +19,7 @@ class User with _$User{
     required String email,
     required String phone,
     required String cell,
+    required Picture picture,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
@@ -64,6 +65,17 @@ class Location {
   static String _intSafeToString(dynamic jsonVal) {
     return jsonVal?.toString() ?? '';
   }
+}
+
+@freezed
+class Picture with _$Picture {
+  const factory Picture({
+    required String large,
+    required String medium,
+    required String thumbnail,
+  }) = _Picture;
+
+  factory Picture.fromJson(Map<String, dynamic> json) => _$PictureFromJson(json);
 }
 /*
 "gender": "female",
