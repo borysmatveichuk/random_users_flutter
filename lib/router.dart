@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:random_users_flutter/presentation/pages/home/home_page.dart';
-import 'package:random_users_flutter/presentation/pages/user_details/used_details_page.dart';
+import 'package:random_users_flutter/presentation/pages/user_details/user_details_page.dart';
 
 import 'data/models/user.dart';
 
