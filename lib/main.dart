@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
-
-import 'package:random_users_flutter/presentation/pages/home/home_page.dart';
 import 'package:random_users_flutter/router.dart';
 
 final loggerProvider = Provider((ref) => Logger());

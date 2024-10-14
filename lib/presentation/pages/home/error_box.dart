@@ -20,7 +20,7 @@ class ErrorBox extends ConsumerWidget {
           Text(errorMessage),
           const SizedBox(height: 32),
           ElevatedButton(
-            onPressed: () => ref.refresh(usersProvider.notifier).getUsers(1),
+            onPressed: () => ref.refresh(usersProvider.notifier).getUsers(),
             child: const Text('Try again'),
           ),
         ],
