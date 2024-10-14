@@ -17,9 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$UsersState {
   List<User> get users => throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-  bool get isError => throw _privateConstructorUsedError;
+  ResultStatus get status => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
 
   /// Create a copy of UsersState
   /// with the given fields replaced by the non-null parameter values.
@@ -35,7 +35,7 @@ abstract class $UsersStateCopyWith<$Res> {
       _$UsersStateCopyWithImpl<$Res, UsersState>;
   @useResult
   $Res call(
-      {List<User> users, bool isLoading, bool isError, String errorMessage});
+      {List<User> users, ResultStatus status, String errorMessage, int page});
 }
 
 /// @nodoc
@@ -54,27 +54,27 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
   @override
   $Res call({
     Object? users = null,
-    Object? isLoading = null,
-    Object? isError = null,
+    Object? status = null,
     Object? errorMessage = null,
+    Object? page = null,
   }) {
     return _then(_value.copyWith(
       users: null == users
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
               as List<User>,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isError: null == isError
-          ? _value.isError
-          : isError // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ResultStatus,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -88,7 +88,7 @@ abstract class _$$UsersStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<User> users, bool isLoading, bool isError, String errorMessage});
+      {List<User> users, ResultStatus status, String errorMessage, int page});
 }
 
 /// @nodoc
@@ -105,27 +105,27 @@ class __$$UsersStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? users = null,
-    Object? isLoading = null,
-    Object? isError = null,
+    Object? status = null,
     Object? errorMessage = null,
+    Object? page = null,
   }) {
     return _then(_$UsersStateImpl(
       users: null == users
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
               as List<User>,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isError: null == isError
-          ? _value.isError
-          : isError // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ResultStatus,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -135,9 +135,9 @@ class __$$UsersStateImplCopyWithImpl<$Res>
 class _$UsersStateImpl extends _UsersState {
   _$UsersStateImpl(
       {final List<User> users = const [],
-      this.isLoading = true,
-      this.isError = false,
-      this.errorMessage = ""})
+      this.status = ResultStatus.inProgress,
+      this.errorMessage = "",
+      this.page = 1})
       : _users = users,
         super._();
 
@@ -152,17 +152,17 @@ class _$UsersStateImpl extends _UsersState {
 
   @override
   @JsonKey()
-  final bool isLoading;
-  @override
-  @JsonKey()
-  final bool isError;
+  final ResultStatus status;
   @override
   @JsonKey()
   final String errorMessage;
+  @override
+  @JsonKey()
+  final int page;
 
   @override
   String toString() {
-    return 'UsersState(users: $users, isLoading: $isLoading, isError: $isError, errorMessage: $errorMessage)';
+    return 'UsersState(users: $users, status: $status, errorMessage: $errorMessage, page: $page)';
   }
 
   @override
@@ -171,20 +171,15 @@ class _$UsersStateImpl extends _UsersState {
         (other.runtimeType == runtimeType &&
             other is _$UsersStateImpl &&
             const DeepCollectionEquality().equals(other._users, _users) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_users),
-      isLoading,
-      isError,
-      errorMessage);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_users), status, errorMessage, page);
 
   /// Create a copy of UsersState
   /// with the given fields replaced by the non-null parameter values.
@@ -198,19 +193,19 @@ class _$UsersStateImpl extends _UsersState {
 abstract class _UsersState extends UsersState {
   factory _UsersState(
       {final List<User> users,
-      final bool isLoading,
-      final bool isError,
-      final String errorMessage}) = _$UsersStateImpl;
+      final ResultStatus status,
+      final String errorMessage,
+      final int page}) = _$UsersStateImpl;
   _UsersState._() : super._();
 
   @override
   List<User> get users;
   @override
-  bool get isLoading;
-  @override
-  bool get isError;
+  ResultStatus get status;
   @override
   String get errorMessage;
+  @override
+  int get page;
 
   /// Create a copy of UsersState
   /// with the given fields replaced by the non-null parameter values.
