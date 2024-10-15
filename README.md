@@ -1,16 +1,20 @@
 # random_users_flutter
 
-A new Flutter project.
+The goal of this project is to try out the Riverpod package.
 
-## Getting Started
+## Key points
 
-This project is a starting point for a Flutter application.
+- Riverpod
+- Freezed
+- Go Router
+- Slivers
 
-A few resources to get you started if this is your first Flutter project:
+### Don't forget 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+After editing freezed models don't forget to run
+```
+dart run build_runner build
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+

@@ -77,7 +77,8 @@ class Picture with _$Picture {
 
   factory Picture.fromJson(Map<String, dynamic> json) => _$PictureFromJson(json);
 }
-/*
+
+/*  JSON Sample
 "gender": "female",
       "name": {
         "title": "Miss",
