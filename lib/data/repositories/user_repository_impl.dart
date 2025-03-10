@@ -25,9 +25,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<RepositoryResult<List<User>>> getUsers({required int page}) async {
     try {
       final result = await restClient.getUsers(page);
-      return RepositoryResult.left(result.results);
+      return RepositoryResult.right(result.results);
     } catch (e, trace) {
-      return RepositoryResult.right(AppError(e, trace));
+      return RepositoryResult.left(AppError(e, trace));
     }
   }
 }

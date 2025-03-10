@@ -3,7 +3,7 @@ import 'package:random_users_flutter/data/models/user.dart';
 
 import '../models/app_error.dart';
 
-typedef RepositoryResult<T> = Either<T, AppError>;
+typedef RepositoryResult<T> = Either<AppError, T>;
 
 abstract interface class UserRepository {
   Future<RepositoryResult<List<User>>> getUsers({

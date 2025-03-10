@@ -30,18 +30,20 @@ class UsersNotifier extends StateNotifier<UsersState> {
     );
     final response = await repository.getUsers(page: state.page);
     state = response.fold(
-      (l) => state.copyWith(
-        status: ResultStatus.success,
-        errorMessage: '',
-        users: [...state.users, ...l],
-        page: state.page + 1,
-      ),
-      (r) {
-        logger?.d(r.error.toString());
-        logger?.d(r.stackTrace);
+      (l) {
+        logger?.d(l.error.toString());
+        logger?.d(l.stackTrace);
         return state.copyWith(
           status: ResultStatus.failure,
-          errorMessage: r.error.toString(),
+          errorMessage: l.error.toString(),
+        );
+      },
+      (r) {
+        return state.copyWith(
+          status: ResultStatus.success,
+          errorMessage: '',
+          users: [...state.users, ...r],
+          page: state.page + 1,
         );
       },
     );
