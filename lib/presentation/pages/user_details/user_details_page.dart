@@ -67,42 +67,9 @@ class UserDetailsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          'Country: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          user.location.country,
-                          style: titleStyle,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'State: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          user.location.state,
-                          style: titleStyle,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'City: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          user.location.city,
-                          style: titleStyle,
-                        ),
-                      ],
-                    ),
+                    _InfoWidget(title: 'Country', info: user.location.country),
+                    _InfoWidget(title: 'State', info: user.location.state),
+                    _InfoWidget(title: 'City', info: user.location.city),
                   ],
                 ),
               ),
@@ -110,6 +77,35 @@ class UserDetailsPage extends StatelessWidget {
           ),
         ),
       ]),
+    );
+  }
+}
+
+class _InfoWidget extends StatelessWidget {
+  const _InfoWidget({
+    super.key,
+    required this.title,
+    required this.info,
+  });
+
+  final String title;
+  final String info;
+
+  @override
+  Widget build(BuildContext context) {
+    final titleStyle =
+        Theme.of(context).textTheme.titleLarge?.copyWith(height: 2);
+    return Row(
+      children: [
+        Text(
+          '$title: ',
+          style: titleStyle,
+        ),
+        Text(
+          info,
+          style: titleStyle,
+        ),
+      ],
     );
   }
 }
