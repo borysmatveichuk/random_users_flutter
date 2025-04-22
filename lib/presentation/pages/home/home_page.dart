@@ -120,7 +120,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     ),
                     onTap: () {
                       context.go(
-                        AppRoutes.home + AppRoutes.userDetails,
+                        AppRoutes.userDetails,
                         extra: users[idx],
                       );
                     },
